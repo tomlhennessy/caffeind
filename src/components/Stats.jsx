@@ -1,4 +1,4 @@
-import { calculateCurrentCaffeineLevel, coffeeConsumptionHistory, statusLevels, calculateCoffeeStats, getTopThreeCoffees } from '../utils'
+import { calculateCurrentCaffeineLevel, statusLevels, calculateCoffeeStats, getTopThreeCoffees } from '../utils'
 import { useAuth } from '../context/AuthContext'
 
 function StatCard(props) {
@@ -36,7 +36,7 @@ export default function Stats() {
                 <StatCard lg title="Active Caffeine Level">
                     <div className="status">
                         <p><span className="stat-text">{caffeineLevel}</span>mg</p>
-                        <h5 style={{color: statusLevels['low'].color, background: statusLevels[warningLevel].background}}>Low</h5>
+                        <h5 style={{color: statusLevels['low'].color, background: statusLevels[warningLevel].background}}>{warningLevel}</h5>
                     </div>
                     <p>{statusLevels[warningLevel].description}</p>
                 </StatCard>

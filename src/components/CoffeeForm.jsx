@@ -123,7 +123,7 @@ export default function CoffeeForm(props) {
             <div className="time-entry">
                 <div>
                     <h6>Hours</h6>
-                    <select onChange={(e) => {
+                    <select value={hour} onChange={(e) => {
                         setHour(e.target.value)
                     }} id="hours-select">
                         {[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23].map((hour, hourIndex) => {
@@ -137,7 +137,7 @@ export default function CoffeeForm(props) {
                 </div>
                 <div>
                     <h6>Mins</h6>
-                    <select onChange={(e) => {
+                    <select value={min} onChange={(e) => {
                         setMin(e.target.value)
                     }} id="mins-select">
                         {[0,5,10,15,30,45].map((min, minIndex) => {

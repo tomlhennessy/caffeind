@@ -17,7 +17,7 @@ export default function Layout(props) {
                 <p>For Coffee Insatiates</p>
             </div>
             {globalUser ? (
-                <button onClick={() => { logout }}>
+                <button onClick={logout}>
                 <p>Logout</p>
                 <i className="fa-solid fa-mug-hot"></i>
             </button>

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 
-export default function Authentication() {
+export default function Authentication({ handleCloseModal }) {
     const [isRegistration, setIsRegistration] = useState(false)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -23,6 +23,10 @@ export default function Authentication() {
             } else {
                 // login a user
                 await login(email, password)
+            }
+
+            if (handleCloseModal) {
+                handleCloseModal()
             }
         } catch (err) {
             console.log(err.message)
