@@ -28,7 +28,7 @@ export function AuthProvider(props) {
     }
 
     function logout() {
-        setUser(null)
+        setGlobalUser(null)
         setGlobalData(null)
         return signOut(auth)
     }
@@ -37,8 +37,13 @@ export function AuthProvider(props) {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
+            console.log('CURRENT USER:', user)
+            setGlobalUser(user)
             // if there's no user, empty the user state and return from this listener
-            if (!user) { return }
+            if (!user) {
+                console.log('No active user')
+                return
+            }
             // if there is a user, then check if the user has data in the database, and if they do, fetch said data and update the global state
             try {
                 setIsLoading(true)
